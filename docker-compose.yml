@@ -1,0 +1,25 @@
+services:
+  valkey:
+    image: valkey/valkey:latest
+
+  web:
+    build: .
+    command: uv run python main.py
+    ports:
+      - "5000:5000"
+    depends_on:
+      - valkey
+    volumes:
+      - shared_data:/data
+
+  worker:
+    build: .
+    command: uv run celery -A src.celery_app worker --loglevel=info
+    depends_on:
+      - valkey
+    volumes:
+      - shared_data:/data
+
+
+volumes:
+  shared_data: 
