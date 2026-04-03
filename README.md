@@ -38,7 +38,7 @@ A scalable, containerized DNA sequence analysis pipeline that asynchronously pro
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mohdsinanm/Pipeline-in-a-box.git
    cd pipeline-in-a-box
    ```
 
